@@ -1,33 +1,68 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Tic Tac Toe XOXO</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
-
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
       <h1>tic tac toe</h1>
+      <br>
+      <p id="message"></p>
+      <section id="sign-up-section">
+        <form id="sign-up-form">
+          <fieldset>
+            <legend>sign up</legend>
+            <label for="sign-up-email">email</label>
+            <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
+            <label for="sign-up-password">password</label>
+            <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+            <label for="sign-up-password_confirmation">confirm password</label>
+            <input id="sign-up-password_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <input type="submit" value="Sign Up">
+          </fieldset>
+        </form>
+      </section>
+      <br>
+      <section id="sign-in-section">
+        <form id="sign-in-form">
+          <fieldset>
+            <legend>sign in</legend>
+            <label for="sign-in-email">email</label>
+            <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+            <label for="sign-in-password">password</label>
+            <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign In">
+          </fieldset>
+        </form>
+      </section>
+      <br>
+      <section id="change-password-section">
+        <form id="change-password-form">
+          <fieldset>
+            <legend>change password</legend>
+            <label for="change-password-old">current password</label>
+            <input id="change-password-old" type="password" name="passwords[old]" placeholder="Current Password">
+            <label for="change-password-new">new password</label>
+            <input id="change-password-new" type="password" name="passwords[new]" placeholder="New Password">
+            <input type="submit" value="Change Password">
+          </fieldset>
+        </form>
+      </section>
+      <br>
+      <section id="sign-out-section">
+        <legend>sign out</legend>
+        <button id="sign-out">Sign Out</button>
+      </section>
+      <br>
+      <div id="auth-display"></div>
 
-      <form>
-        <label for="signup">sign up</label><br>
-        <input type="text" id="signup" name="Username" placeholder="Username"><br>
-        <input type="text" id="password" name="Password" placeholder="Password"><br><br>
-        <input type="submit" value="Sign Up"><br><br>
-        <label for="signin">sign in</label><br>
-        <input type="text" id="signin" name="Username" placeholder="Username"><br>
-        <label for="password">password:</label><br>
-        <input type="text" id="password" name="Password" placeholder="Password"><br><br>
-        <input type="submit" value="Sign In"><br><br>
-        <label for="signin">reset password</label><br>
-        <input type="text" id="resetpw" name="oldpw" placeholder="Old Password"><br>
-        <input type="text" id="resetpw" name="newpw" placeholder="New Password"><br>
-        <input type="submit" value="Reset">
-      </form>
+      <section>
+        <button id="reset-game">Reset Game</button>
+      </section>
     </body>
 </html>
