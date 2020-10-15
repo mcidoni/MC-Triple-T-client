@@ -10,6 +10,7 @@
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.2",
     "jquery": "^3.3.1",
+    "node-gyp": "^7.1.1",
     "popper.js": "^1.14.3"
   },
   "devDependencies": {
@@ -37,7 +38,7 @@
     "handlebars-loader": "^1.6.0",
     "load-grunt-config": "^3.0.1",
     "node-libs-browser": "^2.1.0",
-    "node-sass": "^4.7.2",
+    "node-sass": "^4.14.1",
     "on-build-webpack": "^0.1.0",
     "opn": "^5.4.0",
     "postcss-loader": "^2.1.6",
