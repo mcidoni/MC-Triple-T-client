@@ -15,3 +15,4 @@ $(() => {
   // DELETE sign-out
   $('#sign-out').on('click', events.onSignOut)
 })
+
