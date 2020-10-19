@@ -37,6 +37,14 @@ const signOutSuccess = () => {
 const signOutFailure = err => {
   $("#message").text('Sign out failed, try again')
 }
+
+const createGameSuccess = res => {
+  store.game = res.game
+}
+
+const createGameFailure = err => {
+  alert('Catastrophic failure, self-destruct initiated')
+}
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -45,5 +53,7 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  createGameSuccess,
+  createGameFailure
 }

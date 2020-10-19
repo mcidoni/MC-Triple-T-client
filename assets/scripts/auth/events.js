@@ -10,6 +10,7 @@ const onSignUp = e => {
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
 }
+
 const onSignIn = e => {
   e.preventDefault()
   const form = e.target
@@ -18,6 +19,7 @@ const onSignIn = e => {
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
 }
+
 const onChangePassword = e => {
   e.preventDefault()
   const form = e.target
@@ -26,15 +28,25 @@ const onChangePassword = e => {
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
+
 const onSignOut = e => {
   e.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
 }
+
+const onCreateGame = e => {
+  e.preventDefault()
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onCreateGame
 }
