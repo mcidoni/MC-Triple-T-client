@@ -1,4 +1,5 @@
 'use strict'
+const { blockParams } = require('handlebars')
 const store = require('../store')
 const signUpSuccess = res => {
   $("#message").text('Thanks for signing up ' + res.user.email)
@@ -15,6 +16,7 @@ const signInSuccess = res => {
   $('#sign-out-section').css('display', 'block')
   $('#sign-up-section').css('display', 'none')
   $('#sign-in-section').css('display', 'none')
+  $('#gameboard').css('display', 'flex')
 }
 const signInFailure = err => {
   $("#message").text('Sign in failed, try again')
