@@ -34,9 +34,41 @@ const signOut = () => {
     }
   })
 }
+
+const createGame = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
+
+const updateGame = (index, currentPlayer, gameIsOver) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }, 
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: currentPlayer
+        },
+        over: gameIsOver
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  createGame,
+  updateGame
 }
