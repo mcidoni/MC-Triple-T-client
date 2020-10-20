@@ -45,10 +45,30 @@ const createGame = () => {
   })
 }
 
+const updateGame = (index, currentPlayer, gameIsOver) => {
+  return $.ajax({
+    url: config.apiUrl + '/games/' + store.game._id,
+    method: 'PATCH',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }, 
+    data: {
+      game: {
+        cell: {
+          index: index,
+          value: currentPlayer
+        },
+        over: gameIsOver
+      }
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
-  createGame
+  createGame,
+  updateGame
 }

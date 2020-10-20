@@ -14,6 +14,8 @@ $(() => {
 
   
   $('#create-game').on('click', events.onCreateGame)
+  
+  $('.square').on('click', events.onUpdateGame)
 
   const winningCombos = [
     [0, 1, 2],
@@ -32,34 +34,14 @@ $(() => {
   const gameBoard = ['','','','','','','','','']
 
   // Our box click event handler
-  const onSquareClick = (event) => {
-    console.log('click')
-    
-    // Select the box that was clicked, event.target
-    const box = $(event.target)
-    const index = box.data("num")
-    
-    // only execute code below if empty square is clicked
-    
-    if(!box.text()) {
-          // If the value at "index" in the gameBoard array ==="", I should "return" and do nothing 
-    gameBoard[index] = currentPlayer
-    console.log(gameBoard)
-
-    // Then set the text to the current player
-    box.text(currentPlayer)
-
-    // Change the current player
-    currentPlayer = currentPlayer === 'O' ? '✕' : 'O'
-    }
-  }
+  
 
   // function checkWin(currentPlayer) {
 
   // }
   // Select all of the squares, $('.box'), add an event listener so that `on`
   // every 'click' the `onSquareClick` event handler is called.
-  $('.square').on('click', onSquareClick)
+
 })
 
 
