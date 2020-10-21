@@ -12,7 +12,6 @@ $(() => {
   // DELETE sign-out
   $('#sign-out').on('click', events.onSignOut)
 
-  
   $('#create-game').on('click', events.onCreateGame)
   
   $('.square').on('click', events.onUpdateGame)
