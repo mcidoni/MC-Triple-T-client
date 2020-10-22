@@ -32,14 +32,6 @@ $(() => {
 
   const gameBoard = ['','','','','','','','','']
 
-  // Our box click event handler
-  
-
-  // function checkWin(currentPlayer) {
-
-  // }
-  // Select all of the squares, $('.box'), add an event listener so that `on`
-  // every 'click' the `onSquareClick` event handler is called.
 
 })
 

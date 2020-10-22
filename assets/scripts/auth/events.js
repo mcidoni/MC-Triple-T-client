@@ -72,7 +72,6 @@ const onUpdateGame = e => {
     // Change the current player
     currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
   }
-
 }
 
 
