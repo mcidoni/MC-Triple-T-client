@@ -1,6 +1,7 @@
 'use strict'
-const { blockParams } = require('handlebars')
+
 const store = require('../store')
+const events = require('./events')
 const signUpSuccess = res => {
   $("#message").text('Thanks for signing up ' + res.user.email)
   $('#sign-up-form').trigger('reset')
@@ -19,6 +20,10 @@ const signInSuccess = res => {
   $('#sign-up-section').css('display', 'none')
   $('#sign-in-section').css('display', 'none')
   $('#gameboard').css('display', 'flex')
+  $('#create-game').show()
+  $('#sign-out').show()
+  $('#show-games').show()
+  $('#show-games').show()
 }
 
 const signInFailure = err => {
@@ -41,7 +46,9 @@ const signOutSuccess = () => {
   $('#sign-out-section').css('display', 'none')
   $('#sign-up-section').css('display', 'block')
   $('#sign-in-section').css('display', 'block')
-  $()
+  $('#gameboard').hide()
+  $('#create-game').hide()
+  $('#show-games').hide()
 }
 
 const signOutFailure = err => {
@@ -50,16 +57,42 @@ const signOutFailure = err => {
 
 const createGameSuccess = res => {
   store.game = res.game
+  $('#message').text('New game has begun!')
+  $('.square').text('')
+  $('.square').on('click', events.onUpdateGame)
+  store.currentPlayer = 'X'
+  console.log(res)
 }
 
 const createGameFailure = err => {
-  alert('Catastrophic failure, self-destruct initiated')
+  $('#message').text('Failed to create new game')
 }
 
-const udpateGameSuccess = res => {
+const updateGameSuccess = res => {
   store.game = res.game
-  
+  if (
+    res.game.over === true
+  ){
+    $('#message').text('Game Over! ' + store.currentPlayer + ' wins!' )
+    // $('.square').off('click')
+  }
+  console.log(res)
+  store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
+
 }
+
+const updateGameFailure = res => {
+  $('#message').text('Failed to update game')
+}
+
+const viewGamesSuccess = res => {
+  $('#message').text(`You have played ${res.games.length} games`)
+}
+
+const viewGamesFailure = err => {
+  $('#message').text('Could not display total games played')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -71,5 +104,8 @@ module.exports = {
   signOutFailure,
   createGameSuccess,
   createGameFailure,
-  udpateGameSuccess
+  updateGameSuccess,
+  updateGameFailure,
+  viewGamesSuccess,
+  viewGamesFailure
 }

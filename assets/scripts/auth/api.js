@@ -64,7 +64,17 @@ const updateGame = (index, currentPlayer, gameIsOver) => {
   })
 }
 
+// API request for viewing games goes below
 
+const viewGamesPlayed = () => {
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ${store.user.token}`
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -72,5 +82,6 @@ module.exports = {
   changePassword,
   signOut,
   createGame,
-  updateGame
+  updateGame,
+  viewGamesPlayed
 }

@@ -2,7 +2,10 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('../../../lib/get-form-fields')
-let currentPlayer = 'X'
+const store = require('../store')
+const { currentPlayer } = require('../store')
+const gameBoard = ['','','','','','','','','']
+let gameOver = false
 
 const onSignUp = e => {
   e.preventDefault()
@@ -52,7 +55,6 @@ const onCreateGame = e => {
 
 const onUpdateGame = e => {
   e.preventDefault()
-  console.log('click')
 
   // Select the box that was clicked, event.target
   const box = $(e.target)
@@ -60,19 +62,52 @@ const onUpdateGame = e => {
 
   // only execute code below if empty square is clicked
 
-  if (!box.text()) {
-    // If the value at "index" in the gameBoard array ==="", I should "return" and do nothing 
-
+  // If the value at "index" in the gameBoard array ==="", I should "return" and do nothing 
+  if (!box.text() && !gameOver) {
+    checkWin(index)
     // Then set the text to the current player
-    box.text(currentPlayer)
-    api.updateGame(index, currentPlayer, false)
+    box.text(store.currentPlayer)
+    api.updateGame(index, store.currentPlayer, gameOver)
       .then(ui.updateGameSuccess)
       .catch(ui.updateGameFailure)
-
-    // Change the current player
-    currentPlayer = currentPlayer === 'O' ? 'X' : 'O'
+      gameOver = false
   }
 }
+
+const onShowGamesPlayed = e => {
+  e.preventDefault()
+  api.viewGamesPlayed()
+  .then(ui.viewGamesSuccess)
+  .catch(ui.viewGamesFailure)
+}
+
+const checkWin = (index) => {
+  console.log(store.currentPlayer)
+  const gameBoard = store.game.cells
+  console.log(gameBoard)
+  gameBoard[index] = store.currentPlayer
+  if (
+    (gameBoard[0] === store.currentPlayer && gameBoard[1] === store.currentPlayer && gameBoard[2] === store.currentPlayer) ||
+
+    (gameBoard[3] === store.currentPlayer && gameBoard[4] === store.currentPlayer && gameBoard[5] === store.currentPlayer) ||
+
+    (gameBoard[6] === store.currentPlayer && gameBoard[7] === store.currentPlayer && gameBoard[8] === store.currentPlayer) ||
+
+    (gameBoard[0] === store.currentPlayer && gameBoard[3] === store.currentPlayer && gameBoard[6] === store.currentPlayer) ||
+
+    (gameBoard[1] === store.currentPlayer && gameBoard[4] === store.currentPlayer && gameBoard[7] === store.currentPlayer) ||
+
+    (gameBoard[2] === store.currentPlayer && gameBoard[5] === store.currentPlayer && gameBoard[8] === store.currentPlayer) ||
+
+    (gameBoard[0] === store.currentPlayer && gameBoard[4] === store.currentPlayer && gameBoard[8] === store.currentPlayer) ||
+
+    (gameBoard[2] === store.currentPlayer && gameBoard[4] === store.currentPlayer && gameBoard[6] === store.currentPlayer)
+  )
+  {
+    gameOver = true
+  }
+}
+
 
 
 module.exports = {
@@ -81,5 +116,7 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onCreateGame,
-  onUpdateGame
+  onUpdateGame,
+  onShowGamesPlayed,
+  checkWin
 }
