@@ -14,7 +14,12 @@ body {
   text-align: left;
 }
 
-.hidden {
+.hidden,
+#sign-out,
+#create-game,
+#show-games
+.X-wins
+.O-wins {
   display: none;
 }
 
