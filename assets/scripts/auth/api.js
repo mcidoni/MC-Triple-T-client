@@ -64,6 +64,8 @@ const updateGame = (index, currentPlayer, gameIsOver) => {
   })
 }
 
+
+
 module.exports = {
   signUp,
   signIn,
