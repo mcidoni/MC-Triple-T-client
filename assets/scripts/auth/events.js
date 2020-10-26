@@ -48,6 +48,7 @@ const onSignOut = e => {
 
 const onCreateGame = e => {
   e.preventDefault()
+  console.log('oooOOOoo weddy gooord')
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -55,7 +56,10 @@ const onCreateGame = e => {
 
 const onUpdateGame = e => {
   e.preventDefault()
-
+  console.log('is game over?', gameOver)
+  if (gameOver) {
+    return 
+  }
   // Select the box that was clicked, event.target
   const box = $(e.target)
   const index = box.data("num")
