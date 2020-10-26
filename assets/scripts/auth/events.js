@@ -48,7 +48,6 @@ const onSignOut = e => {
 
 const onCreateGame = e => {
   e.preventDefault()
-  console.log('oooOOOoo weddy gooord')
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -56,7 +55,7 @@ const onCreateGame = e => {
 
 const onUpdateGame = e => {
   e.preventDefault()
-  console.log('is game over?', gameOver)
+ 
   if (gameOver) {
     return 
   }
@@ -86,9 +85,7 @@ const onShowGamesPlayed = e => {
 }
 
 const checkWin = (index) => {
-  console.log(store.currentPlayer)
   const gameBoard = store.game.cells
-  console.log(gameBoard)
   gameBoard[index] = store.currentPlayer
   if (
     (gameBoard[0] === store.currentPlayer && gameBoard[1] === store.currentPlayer && gameBoard[2] === store.currentPlayer) ||
