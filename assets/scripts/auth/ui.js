@@ -61,7 +61,6 @@ const createGameSuccess = res => {
   $('.square').text('')
   $('.square').on('click', events.onUpdateGame)
   store.currentPlayer = 'X'
-  console.log(res)
   $('#gameboard').show()
 }
 
@@ -75,10 +74,8 @@ const updateGameSuccess = res => {
     res.game.over === true
   ){
     $('#message').text('Game Over! ' + store.currentPlayer + ' wins!' )
-    // $('.square').off('click')
     $('#gameboard').hide()
   }
-  console.log(res)
   store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
 
 }
