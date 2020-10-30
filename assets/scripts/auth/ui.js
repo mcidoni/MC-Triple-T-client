@@ -92,6 +92,7 @@ const viewGamesFailure = err => {
   $('#message').text('Could not display total games played')
 }
 
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
