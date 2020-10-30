@@ -73,7 +73,8 @@ const onUpdateGame = e => {
     api.updateGame(index, store.currentPlayer, gameOver)
       .then(ui.updateGameSuccess)
       .catch(ui.updateGameFailure)
-      gameOver = false
+
+    gameOver = false
   }
 }
 
@@ -103,12 +104,29 @@ const checkWin = (index) => {
     (gameBoard[0] === store.currentPlayer && gameBoard[4] === store.currentPlayer && gameBoard[8] === store.currentPlayer) ||
 
     (gameBoard[2] === store.currentPlayer && gameBoard[4] === store.currentPlayer && gameBoard[6] === store.currentPlayer)
-  )
-  {
+  ) {
     gameOver = true
+  } else if (!checkForEmptyStrings(gameBoard)) {
+    // game is a draw
+
   }
 }
 
+// draw logic: if all squares are full and there is no winner, then its a draw
+// IF GAME OVER AND NO WIN, draw = true
+
+
+function checkForEmptyStrings(array) {
+  for (let i = 0; i < array.length; i++) {
+    const item = array[i]
+    if (item === '') {
+      return true
+    }
+  }
+  return false
+}
+
+const hasEmptyString = checkForEmptyStrings(gameBoard) // true or false
 
 
 module.exports = {
