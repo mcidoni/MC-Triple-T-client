@@ -85,6 +85,7 @@ const onShowGamesPlayed = e => {
   .catch(ui.viewGamesFailure)
 }
 
+// Scan gameboard array for winning combinations, and if win false, call function to check for draw 
 const checkWin = (index) => {
   const gameBoard = store.game.cells
   gameBoard[index] = store.currentPlayer
@@ -108,7 +109,6 @@ const checkWin = (index) => {
     gameOver = true
   } else if (!checkForEmptyStrings(gameBoard)) {
     gameOver = true
-    console.log('Its a draw')
     store.isTie = true
   }
 }
