@@ -107,7 +107,7 @@ const checkWin = (index) => {
   ) {
     gameOver = true
   } else if (!checkForEmptyStrings(gameBoard)) {
-    // game is a draw
+    // game is a draw 
 
   }
 }
