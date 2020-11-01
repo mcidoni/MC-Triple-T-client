@@ -1,7 +1,8 @@
 'use strict'
 
 const store = {
-  currentPlayer: 'X'
+  currentPlayer: 'X',
+  isTie: false
 }
 
 module.exports = store

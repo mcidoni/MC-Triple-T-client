@@ -57,6 +57,7 @@ const signOutFailure = err => {
 
 const createGameSuccess = res => {
   store.game = res.game
+  store.isTie = false
   $('#message').text('New game has begun!')
   $('.square').text('')
   $('.square').on('click', events.onUpdateGame)
@@ -71,13 +72,14 @@ const createGameFailure = err => {
 const updateGameSuccess = res => {
   store.game = res.game
   if (
-    res.game.over === true
-  ){
+    res.game.over === true && store.isTie === true
+    ){
+      $('#message').text('Its A Draw! Play again')
+    } else if (res.game.over === true) {
     $('#message').text('Game Over! ' + store.currentPlayer + ' wins!' )
     $('#gameboard').hide()
   }
   store.currentPlayer = store.currentPlayer === 'O' ? 'X' : 'O'
-
 }
 
 const updateGameFailure = res => {

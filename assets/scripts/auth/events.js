@@ -107,8 +107,9 @@ const checkWin = (index) => {
   ) {
     gameOver = true
   } else if (!checkForEmptyStrings(gameBoard)) {
-    // game is a draw 
-
+    gameOver = true
+    console.log('Its a draw')
+    store.isTie = true
   }
 }
 
@@ -117,13 +118,14 @@ const checkWin = (index) => {
 
 
 function checkForEmptyStrings(array) {
+  let empty = false 
   for (let i = 0; i < array.length; i++) {
     const item = array[i]
     if (item === '') {
-      return true
+      empty = true
     }
   }
-  return false
+  return empty
 }
 
 const hasEmptyString = checkForEmptyStrings(gameBoard) // true or false
