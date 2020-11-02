@@ -29,9 +29,9 @@ As a user, I want to be able to change my password
 
 ## Images: 
 
-
-
 ---
 
 #### Wireframe:
-![wireframe] (link for wireframe goes here)
+[Imgur](https://i.imgur.com/XPkbKmQ.jpg)
+
+[Imgur](https://i.imgur.com/iTKQt6B.jpg) 
