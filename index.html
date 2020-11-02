@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Tic Tac Toe XOXO</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <h1>tic tac toe</h1>
+      <br>
+      <p id="message"></p>
+      <section id="sign-up-section">
+        <form id="sign-up-form">
+          <fieldset>
+            <legend>sign up</legend>
+            <label for="sign-up-email">email</label>
+            <input id="sign-up-email" type="email" name="credentials[email]" placeholder="Email">
+            <label for="sign-up-password">password</label>
+            <input id="sign-up-password" type="password" name="credentials[password]" placeholder="Password">
+            <label for="sign-up-password_confirmation">confirm password</label>
+            <input id="sign-up-password_confirmmation" type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+            <input type="submit" value="Sign Up">
+          </fieldset>
+        </form>
+      </section>
+      <br>
+      <section id="sign-in-section">
+        <form id="sign-in-form">
+          <fieldset>
+            <legend>sign in</legend>
+            <label for="sign-in-email">email</label>
+            <input id="sign-in-email" type="email" name="credentials[email]" placeholder="Email">
+            <label for="sign-in-password">password</label>
+            <input id="sign-in-password" type="password" name="credentials[password]" placeholder="Password">
+            <input type="submit" value="Sign In">
+          </fieldset>
+        </form>
+      </section>
+      <br>
+      <section id="change-password-section" class="hidden">
+        <form id="change-password-form">
+          <fieldset>
+            <legend>change password</legend>
+            <label for="change-password-old">current password</label>
+            <input id="change-password-old" type="password" name="passwords[old]" placeholder="Current Password">
+            <label for="change-password-new">new password</label>
+            <input id="change-password-new" type="password" name="passwords[new]" placeholder="New Password">
+            <input type="submit" value="Change Password">
+          </fieldset>
+        </form>
+      </section>
+      <br>
+      <section id="sign-out-section">
+        <!-- <legend>sign out</legend> -->
+        <button id="sign-out">Sign Out</button>
+      </section>
+      <br>
+
+      <div id="auth-display"></div>
+      <div class="game-board hidden" id="gameboard">
+        <div class="square one" data-num="0"></div>
+        <div class="square two" data-num="1"></div>
+        <div class="square three" data-num="2"></div>
+        <div class="square four" data-num="3"></div>
+        <div class="square five" data-num="4"></div>
+        <div class="square six" data-num="5"></div>
+        <div class="square seven" data-num="6"></div>
+        <div class="square eight" data-num="7"></div>
+        <div class="square nine" data-num="8"></div>
+      </div>
+      <section>
+        <button id="create-game">Reset Game</button>
+      </section>
+
+      <section>
+        <button id="show-games" class="hidden">Show # Of Games Played</button>
+      </section>
+
+      <section class="X-wins hidden">
+        X's Win!
+      </section>
+
+      <section class="O-wins hidden">
+        O's Win!
+      </section>
+
+      <section class="Draw hidden">
+        It's a draw!
+      </section>
+
+
+    </body>
+</html>
+
