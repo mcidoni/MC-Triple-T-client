@@ -58,7 +58,7 @@ const signOutFailure = err => {
 const createGameSuccess = res => {
   store.game = res.game
   store.isTie = false
-  $('#message').text('New game has begun!')
+  $('#message').text('new game has begun!')
   $('.square').text('')
   $('.square').on('click', events.onUpdateGame)
   store.currentPlayer = 'X'
